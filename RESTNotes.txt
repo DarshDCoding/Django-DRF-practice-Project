@@ -27,5 +27,11 @@ GET, POST, PUT, DELETE
 	PUT	/student/1
 	DELETE	/student/1
 
+Web Application Endpoints:
+Users can directly access it from the web browsers
+http://127.0.0.1:8000/students/
 
+API Endpoints:
+Returns the data to integrate into the frontend.
+http://172.0.0.1:8000/api/v1/students/
 
