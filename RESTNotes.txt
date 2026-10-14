@@ -1,0 +1,31 @@
+Core Pinciples of REST
+
+Stateless:
+	The server doesn't store any information about the client between requests.
+
+Client-Server Architecture:
+	The app (client) asks for things (data) and ther server does what's requested (sends data or makes changes).
+
+Standardized Interface:
+	REST APIs rely on set of standar methods (GET, POST, PUT, DELETE) for interacting with resources.
+
+	GET => retrieving the resource
+	POST => creating the resource
+	PUT => updating the resource
+	DELETE => deleting the resource
+
+Easy-to-Read Data: 
+	REST APIs returns the response in a standardized easy to read formats, typically JSON or XML formats.
+
+
+RESTful Operations
+GET, POST, PUT, DELETE
+	
+	Method	URI
+	GET	/students
+	POST	/students
+	PUT	/student/1
+	DELETE	/student/1
+
+
+
