@@ -22,19 +22,29 @@ def studentsView(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'POST'])
+@api_view(['GET', 'POST', 'PUT'])
 def student_details(request, pk):
     student = get_object_or_404(Student, pk=pk)
 
+    #for getting
     if request.method == 'GET':
         serializer = StudentSerializer(student)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+    #for adding new
     elif request.method == 'POST':
         serializer = StudentSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    #for updating
+    elif request.method == 'PUT':
+        serializer = StudentSerializer(student, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
     else:
