@@ -14,7 +14,7 @@ class Employee(models.Model):
 
 class Subject(models.Model):
     name = models.CharField(max_length=100)
-    employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
+    employee = models.ManyToManyField(Employee, related_name='subject')
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
