@@ -130,44 +130,10 @@ class EmployeeView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
         return self.create(request)
 
 
-class EmployeeDetailsView(mixins.RetrieveModelMixin,
-                          mixins.UpdateModelMixin,
-                          mixins.DestroyModelMixin,
-                          generics.GenericAPIView):
+class EmployeeDetailView(mixins.RetrieveModelMixin, generics.GenericAPIView):
 
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
 
     def get(self, request, pk):
         return self.retrieve(request)
-
-    def put(self, request):
-        return self.partial_update(request)
-
-    def delete(self, request, pk):
-        return self.destroy(request)
-
-
-class Students(
-    # mixins.CreateModelMixin,
-    # mixins.ListModelMixin,
-    # generics.GenericAPIView
-    generics.ListCreateAPIView
-):
-
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
-
-    # Can do if you want some good control.
-    # def get(self, request):
-    #     return self.list(request)
-    #
-    # def post(self, request):
-    #     return self.create(request)
-
-
-class StudentDetails(generics.RetrieveUpdateDestroyAPIView):
-
-    queryset = Student.objects.all()
-    serializer_class = StudentSerializer
-
