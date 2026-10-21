@@ -106,3 +106,17 @@ class EmployeeDetailsView(APIView):
     def delete (self, request, pk):
         self.get_object(pk).delete()
         return Response(status= status.HTTP_204_NO_CONTENT)
+
+
+
+# Five Basic Mixins
+# ListModelMixin => Support of returning list of object automatically. => list()
+# CreateModelMixin => Automatically create new object in the database. => create()
+# RetriewModelMixin => Support for getting a single object form db. => retrieve()
+# UpdateModelMixin => Update existing data using primary key. => update()
+# DestroyModelMixin => Delete Object using primary key. => destroy()
+#use: class Employees(mixins, generics.GenericAPIView)
+
+# generics.GenericAPIView acts as foundational class for most of API Views.
+
+
