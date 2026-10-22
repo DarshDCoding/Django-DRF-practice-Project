@@ -61,53 +61,6 @@ def student_details(request, pk):
 
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
-
-
-# class EmployeeView(APIView):
-#
-#     def get(self, request):
-#         employees = Employee.objects.all()
-#         if employees.exists():
-#             show_employee = EmployeeSerializer(employees, many=True)
-#             return Response(show_employee.data, status=status.HTTP_200_OK)
-#         return Response(status= status.HTTP_404_NOT_FOUND)
-#
-#     def post(self, request):
-#         serializer = EmployeeSerializer(data= request.data, many=True)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status= status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
-
-# class EmployeeDetailsView(APIView):
-#
-#     def get_object(self, pk):
-#         return get_object_or_404(Employee, pk=pk)
-#
-#     def get(self, request, pk):
-#         serializer = EmployeeSerializer(self.get_object(pk))
-#         return Response(serializer.data, status= status.HTTP_200_OK)
-#
-#     def put(self, request):
-#         serializer = EmployeeSerializer(data=request.data)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status= status.HTTP_400_BAD_REQUEST)
-#
-#     def patch (self, request, pk):
-#         serializer = EmployeeSerializer(self.get_object(pk), data=request.data, partial=True)
-#         if serializer.is_valid():
-#             serializer.save()
-#             return Response(serializer.data, status=status.HTTP_200_OK)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-#
-#     def delete (self, request, pk):
-#         self.get_object(pk).delete()
-#         return Response(status= status.HTTP_204_NO_CONTENT)
-
-
-
 # Five Basic Mixins
 # ListModelMixin => Support of returning list of object automatically. => list()
 # CreateModelMixin => Automatically create new object in the database. => create()
@@ -130,10 +83,7 @@ class EmployeeView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.Gene
         return self.create(request)
 
 
-class EmployeeDetailView(mixins.RetrieveModelMixin, generics.GenericAPIView):
+class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-
-    def get(self, request, pk):
-        return self.retrieve(request)
