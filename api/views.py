@@ -96,3 +96,30 @@ class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 """
 
+"""Have to write multiple classes for generics 
+class EmployeeView(generics.ListAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+
+class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
+    lookup_field = 'pk' #this is something new
+
+"""
+
+"""ViewSets
+
+1. viewsets.ViewSet
+    We have to following inbuilt functions:
+        -> list()
+        -> create()
+        -> retrieve()
+        -> update()
+        -> delete()
+
+2. viewsets.ModelViewSet
+    Takes only queryset and serializer_class, automatically provides both pk and non-pk based operations.
+
+"""
+
