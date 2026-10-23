@@ -125,6 +125,9 @@ class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 """
 
+
+""" using viewsets.ViewSet for manual labour and to comment it out later
+
 class EmployeeViewset (viewsets.ViewSet):
 
     def list(self, request):
@@ -157,5 +160,4 @@ class EmployeeViewset (viewsets.ViewSet):
         employee= get_object_or_404(Employee, pk=pk)
         employee.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
+"""
