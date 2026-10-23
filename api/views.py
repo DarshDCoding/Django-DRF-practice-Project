@@ -161,3 +161,7 @@ class EmployeeViewset (viewsets.ViewSet):
         employee.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 """
+
+class EmployeeViewset(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer
