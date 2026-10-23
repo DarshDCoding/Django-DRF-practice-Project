@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from rest_framework import status, mixins, generics
 # Create your views here.
 
+
+
 @api_view(['GET', 'POST'])
 def studentsView(request):
     if request.method == 'GET':
@@ -61,15 +63,19 @@ def student_details(request, pk):
 
     else:
         return Response(status=status.HTTP_400_BAD_REQUEST)
-# Five Basic Mixins
-# ListModelMixin => Support of returning list of object automatically. => list()
-# CreateModelMixin => Automatically create new object in the database. => create()
-# RetriewModelMixin => Support for getting a single object form db. => retrieve()
-# UpdateModelMixin => Update existing data using primary key. => update()
-# DestroyModelMixin => Delete Object using primary key. => destroy()
-#use: class Employees(mixins, generics.GenericAPIView)
+""" Five Basic Mixins
+ListModelMixin => Support of returning list of object automatically. => list()
+CreateModelMixin => Automatically create new object in the database. => create()
+RetriewModelMixin => Support for getting a single object form db. => retrieve()
+UpdateModelMixin => Update existing data using primary key. => update()
+DestroyModelMixin => Delete Object using primary key. => destroy()
+use: class Employees(mixins, generics.GenericAPIView)
 
 # generics.GenericAPIView acts as foundational class for most of API Views.
+
+"""
+
+"""Using Mixins
 
 class EmployeeView(mixins.ListModelMixin, mixins.CreateModelMixin, generics.GenericAPIView):
 
@@ -87,3 +93,6 @@ class EmployeeDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+"""
+
