@@ -13,11 +13,3 @@ class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
         fields = '__all__'
-
-
-class BlogSerializer(serializers.ModelSerializer):
-    class Meta:
-        model=Blog
-        fields= "__all__"
-
-    
