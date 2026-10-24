@@ -13,6 +13,9 @@ from rest_framework.views import APIView
 from rest_framework import status, mixins, generics
 from rest_framework import viewsets
 
+from blogs.models import Blog, Comment
+from blogs.serializers import BlogSerializer, CommentSerializer
+
 
 @api_view(['GET', 'POST'])
 def studentsView(request):
@@ -165,3 +168,11 @@ class EmployeeViewset (viewsets.ViewSet):
 class EmployeeViewset(viewsets.ModelViewSet):
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
+
+class BlogViewSet(viewsets.ModelViewSet):
+    queryset = Blog.objects.all()
+    serializer_class = BlogSerializer
+
+class CommentViewset(viewsets.ModelViewSet):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
