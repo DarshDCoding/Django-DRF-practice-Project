@@ -10,3 +10,4 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model=Blog
         fields= "__all__"
+    comments = CommentSerializer(many=True, read_only=True)
